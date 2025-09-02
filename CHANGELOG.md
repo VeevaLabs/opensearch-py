@@ -12,12 +12,13 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Deprecated
 ### Removed
 ### Fixed
-- Fix Async request signer doesn't work anymore ([932](https://github.com/opensearch-project/opensearch-py/pull/932))
-
+- Fix Async request signer ([932](https://github.com/opensearch-project/opensearch-py/pull/932))
+- Moved client tests to dedicated files to ensure they are run ([944](https://github.com/opensearch-project/opensearch-py/pull/944))
 ### Security
 ### Dependencies
 - Bumps `aiohttp` from >=3.9.4,<4 to >=3.10.11,<4 ([#920](https://github.com/opensearch-project/opensearch-py/pull/920))
-
+- Bump `pytest-asyncio` from <=0.25.1 to <=1.1.0 ([#936](https://github.com/opensearch-project/opensearch-py/pull/936))
+- Bumps `lycheeverse/lychee-action` from 1.9.3 to 2.0.2 ([#946](https://github.com/opensearch-project/opensearch-py/pull/946))
 
 ## [3.0.0]
 ### Added
@@ -30,6 +31,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Small refactor of AWS Signer classes for both sync and async clients ([866](https://github.com/opensearch-project/opensearch-py/pull/866))
 - Small refactor to fix overwriting the module files when generating apis ([874](https://github.com/opensearch-project/opensearch-py/pull/874))
 - Fixed a "type ignore" lint error
+- Added support for explicit proxy to RequestsHttpConnection ([908](https://github.com/opensearch-project/opensearch-py/pull/908))
 ### Deprecated
 ### Removed
 ### Fixed
