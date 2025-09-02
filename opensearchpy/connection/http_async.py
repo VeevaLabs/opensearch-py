@@ -39,7 +39,7 @@ class AsyncHttpConnection(AIOHttpConnection):
         self,
         host: str = "localhost",
         port: Optional[int] = None,
-        http_auth: Any = None,
+        http_auth: Optional[Union[Tuple[str, str], List[str], str, bytes, Callable[[str, str, Optional[bytes], dict], dict]]]  = None,
         use_ssl: bool = False,
         verify_certs: Any = VERIFY_CERTS_DEFAULT,
         ssl_show_warn: Any = SSL_SHOW_WARN_DEFAULT,
@@ -203,9 +203,12 @@ class AsyncHttpConnection(AIOHttpConnection):
             self._http_auth if isinstance(self._http_auth, aiohttp.BasicAuth) else None
         )
         if callable(self._http_auth):
-            req_headers = self._http_auth(
-                method=method, url=url, body=body, headers=req_headers
-            )
+            req_headers = {
+                **req_headers,
+                **self._http_auth(
+                    method=method, url=url, body=body, headers=req_headers
+                ),
+            }
 
         start = self.loop.time()
         try:
