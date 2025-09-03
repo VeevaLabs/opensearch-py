@@ -13,7 +13,7 @@ import asyncio
 import os
 import ssl
 import warnings
-from typing import Any, Collection, Mapping, Optional, Union
+from typing import Any, Callable, Collection, List, Mapping, Optional, Tuple, Union
 
 import yarl
 
